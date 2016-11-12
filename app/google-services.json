@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "884027813303",
+    "firebase_url": "https://careerguide-bca05.firebaseio.com",
+    "project_id": "careerguide-bca05",
+    "storage_bucket": "careerguide-bca05.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:884027813303:android:2001f40e15e6ae45",
+        "android_client_info": {
+          "package_name": "com.example.aaishsindwani.careerguide"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "884027813303-130s1jeao2f2gigltnrrjo2nlr2p3pdb.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.aaishsindwani.careerguide",
+            "certificate_hash": "6C10D6798F79E6F6040758B6A053965A34BE4E9F"
+          }
+        },
+        {
+          "client_id": "884027813303-0lpqeutfn5muum1qo59ev6ccrmm74tbe.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDux0xjrnMefqOzxYlKWspksVo1QyUr8NU"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "884027813303-0lpqeutfn5muum1qo59ev6ccrmm74tbe.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -21,4 +21,5 @@
         <item>#FFBB00</item>
         <item>#6fce21</item>
     </array>
+    <color name="white_col">#ffffff</color>
 </resources>

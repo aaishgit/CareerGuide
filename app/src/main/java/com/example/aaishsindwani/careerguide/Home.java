@@ -185,31 +185,18 @@ public class Home extends AppCompatActivity/* implements Mainhome.Mainhome_liste
                                         case 4:
                                             fragmentClass = Download_fragment.class;
                                             result.closeDrawer();
-                                            break;
-                                        case 5:
-                                            result.closeDrawer();
-                                            break;
-                                        case 6:
-                                            Intent in1 = new Intent(Home.this, Apppreference.class);
-                                            startActivity(in1);
-                                            result.setSelection(1);
-                                            result.closeDrawer();
                                             break;*/
-                                        case 10:
-                                            result.setSelection(1);
-                                            result.closeDrawer();
+                                        case 5:
                                             AlertDialog.Builder ald = new AlertDialog.Builder(Home.this);
-                                            ald.setTitle("Confirm Logout");
-                                            ald.setIcon(R.mipmap.logout);
-                                            ald.setMessage("Do you want to logout");
+                                            ald.setTitle("Academic Quiz Confirmation");
+                                            ald.setIcon(R.mipmap.academic);
+                                            ald.setMessage("Do you want to attemp Academic Quiz");
                                             ald.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                                                 @Override
                                                 public void onClick(DialogInterface dialogInterface, int i) {
-                                                    currAuth.signOut();
-                                                    Intent log1 = new Intent(Home.this, log_screen.class);
-                                                    startActivity(log1);
-                                                    finish();
-
+                                                    result.setSelection(1);
+                                                    Intent academic= new Intent(Home.this,QuizActivity.class);
+                                                    startActivity(academic);
                                                 }
                                             });
                                             ald.setNegativeButton("No", new DialogInterface.OnClickListener() {
@@ -219,6 +206,37 @@ public class Home extends AppCompatActivity/* implements Mainhome.Mainhome_liste
                                                 }
                                             });
                                             ald.show();
+                                            break;
+                                        /*case 6:
+                                            Intent in1 = new Intent(Home.this, Apppreference.class);
+                                            startActivity(in1);
+                                            result.setSelection(1);
+                                            result.closeDrawer();
+                                            break;*/
+                                        case 10:
+                                            result.setSelection(1);
+                                            result.closeDrawer();
+                                            AlertDialog.Builder logout_alert = new AlertDialog.Builder(Home.this);
+                                            logout_alert.setTitle("Confirm Logout");
+                                            logout_alert.setIcon(R.mipmap.logout);
+                                            logout_alert.setMessage("Do you want to logout");
+                                            logout_alert.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                                                @Override
+                                                public void onClick(DialogInterface dialogInterface, int i) {
+                                                    currAuth.signOut();
+                                                    Intent log1 = new Intent(Home.this, log_screen.class);
+                                                    startActivity(log1);
+                                                    finish();
+
+                                                }
+                                            });
+                                            logout_alert.setNegativeButton("No", new DialogInterface.OnClickListener() {
+                                                @Override
+                                                public void onClick(DialogInterface dialogInterface, int i) {
+                                                    result.setSelection(1);
+                                                }
+                                            });
+                                            logout_alert.show();
                                             break;
 
                                         default:

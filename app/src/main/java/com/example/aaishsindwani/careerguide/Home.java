@@ -187,6 +187,7 @@ public class Home extends AppCompatActivity/* implements Mainhome.Mainhome_liste
                                             result.closeDrawer();
                                             break;*/
                                         case 5:
+                                            result.closeDrawer();
                                             AlertDialog.Builder ald = new AlertDialog.Builder(Home.this);
                                             ald.setTitle("Academic Quiz Confirmation");
                                             ald.setIcon(R.mipmap.academic);

@@ -1,4 +1,4 @@
- <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+ <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -18,7 +18,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             android:text="Large Text"
-            android:textSize="40sp"
+            android:textSize="30sp"
             android:textColor="@color/white_col"
             android:gravity="center_horizontal"
             android:textAppearance="?android:attr/textAppearanceLarge" />
@@ -83,4 +83,4 @@
                 android:layout_height="wrap_content"
                 android:text="Next" />
     </LinearLayout>
-</RelativeLayout>
+</ScrollView>

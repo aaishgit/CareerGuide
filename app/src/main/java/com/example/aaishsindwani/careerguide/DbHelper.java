@@ -23,6 +23,7 @@ public class DbHelper extends SQLiteOpenHelper {
 	private static final String KEY_OPTB= "optb"; //option b
 	private static final String KEY_OPTC= "optc"; //option c
 	private static final String KEY_OPTD= "optd"; //option c
+	private static final String BRANCH="branch";
 	private SQLiteDatabase dbase;
 	public DbHelper(Context context) {
 		super(context, DATABASE_NAME, null, DATABASE_VERSION);
@@ -33,24 +34,33 @@ public class DbHelper extends SQLiteOpenHelper {
 		String sql = "CREATE TABLE IF NOT EXISTS " + TABLE_QUEST + " ( "
 				+ KEY_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " + KEY_QUES
 				+ " TEXT, " + KEY_ANSWER+ " TEXT, "+KEY_OPTA +" TEXT, "
-				+KEY_OPTB +" TEXT, "+KEY_OPTC+" TEXT, "+KEY_OPTD+" TEXT)";
+				+KEY_OPTB +" TEXT, "+KEY_OPTC+" TEXT, "+KEY_OPTD+" TEXT, "+BRANCH+" TEXT)";
 		db.execSQL(sql);		
 		addQuestions();
 		//db.close();
 	}
 	private void addQuestions()
 	{
-		Question q1=new Question("What is JP?","Jalur Pesawat", "Jack sParrow", "Jasa Programmer", "jo bhi","Jasa Programmer");
+		Question q1=new Question("Cricket in colonial India was organised on the " +
+				"principle of:","Religion", "Region", "Religion and Region", "National Loyalties","3","ARTS");
 		this.addQuestion(q1);
-		Question q2=new Question("where the JP place?", "Monas, Jakarta", "Gelondong, Bangun Tapan, bantul", "Gelondong, Bangun Tapan, bandul","india", "Gelondong, Bangun Tapan, bantul");
+		Question q2=new Question("A rational number can be expresses as terminating decimal if the denominator has " +
+				"factors", "2,3 or 5", "2 or 5", "2 or 3","3 or 5", "2","ENGG");
 		this.addQuestion(q2);
-		Question q3=new Question("who is CEO of the JP?","Usman and Jack", "Jack and Rully","Rully and Usman","ok", "Rully and Usman" );
+		Question q3=new Question("Under law of demand:","Price of commodity is an independent variable","" +
+				"Quantity demanded is a dependent variable","Reciprocal relationship is found between price and quantity " +
+				"demanded", "All of the above","4","COMM");
 		this.addQuestion(q3);
-		Question q4=new Question("what do you know about JP?", "JP is programmer home", "what the hell","JP also realigy home", "all answer is true","all answer is true");
+		Question q4=new Question("Plants synthesis protein from:","starch","sugar","amino acids","fatty acids","3","MED");
 		this.addQuestion(q4);
-		Question q5=new Question("what do you learn in JP?","Realigy","Programming","all answer is true","doyou think","all answer is true");
+		Question q5=new Question("5. Most fish do not sink in water because of the presence of\n " +
+				"I.   swim bladder\n" +
+				"II.  air bladder\n" +
+				"III. air sacs\n" +
+				"IV. air in spongy bones", "I and II are correct", "II and III are correct",
+				"III and IV are correct", "I, II, III and IV are correct","1","MED");
 		this.addQuestion(q5);
-	}
+		}
 	@Override
 	public void onUpgrade(SQLiteDatabase db, int oldV, int newV) {
 		// Drop older table if existed
@@ -68,6 +78,7 @@ public class DbHelper extends SQLiteOpenHelper {
 		values.put(KEY_OPTB, quest.getOPTB());
 		values.put(KEY_OPTC, quest.getOPTC());
 		values.put(KEY_OPTD, quest.getOPTD());
+		values.put(BRANCH,quest.getSTREAM());
 		// Inserting Row
 		dbase.insert(TABLE_QUEST, null, values);		
 	}
@@ -88,6 +99,7 @@ public class DbHelper extends SQLiteOpenHelper {
 				quest.setOPTB(cursor.getString(4));
 				quest.setOPTC(cursor.getString(5));
 				quest.setOPTD(cursor.getString(6));
+				quest.setSTREAM(cursor.getString(7));
 				quesList.add(quest);
 			} while (cursor.moveToNext());
 		}

@@ -7,7 +7,7 @@ public class Question {
 	private String OPTC;
 	private String OPTD;
 	private String ANSWER;
-
+	private String STREAM;
 	public Question()
 	{
 		ID=0;
@@ -17,9 +17,10 @@ public class Question {
 		OPTC="";
 		OPTD="";
 		ANSWER="";
+		STREAM="";
 	}
 	public Question(String qUESTION, String oPTA, String oPTB, String oPTC,String oPTD,
-					String aNSWER) {
+					String aNSWER, String sTREAM) {
 		
 		QUESTION = qUESTION;
 		OPTA = oPTA;
@@ -27,11 +28,14 @@ public class Question {
 		OPTC = oPTC;
 		OPTD= oPTD;
 		ANSWER = aNSWER;
+		STREAM=sTREAM;
 	}
 	public int getID()
 	{
 		return ID;
 	}
+
+
 	public String getQUESTION() {
 		return QUESTION;
 	}
@@ -73,5 +77,13 @@ public class Question {
 	public void setOPTD(String oPTD) {
 		OPTD = oPTD;
 	}
+	public String getSTREAM() {
+		return STREAM;
+	}
+
+	public void setSTREAM(String sTREAM) {
+		STREAM = sTREAM;
+	}
+
 
 }

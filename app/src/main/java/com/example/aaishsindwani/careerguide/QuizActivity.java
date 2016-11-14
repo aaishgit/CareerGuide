@@ -48,7 +48,8 @@ public class QuizActivity extends Activity {
 				rdb.setTextColor(getResources().getColor(R.color.bgColor));
 				rdc.setTextColor(getResources().getColor(R.color.bgColor));
 				rdd.setTextColor(getResources().getColor(R.color.bgColor));
-				selected=rda.getText().toString();
+				//selected=rda.getText().toString();
+				selected="1";
 			}
 		});
 		rdb.setOnClickListener(new View.OnClickListener() {
@@ -62,7 +63,8 @@ public class QuizActivity extends Activity {
 				rda.setTextColor(getResources().getColor(R.color.bgColor));
 				rdd.setTextColor(getResources().getColor(R.color.bgColor));
 				rdc.setTextColor(getResources().getColor(R.color.bgColor));
-				selected=rdb.getText().toString();
+				//selected=rdb.getText().toString();
+				selected="2";
 			}
 		});
 		rdc.setOnClickListener(new View.OnClickListener() {
@@ -76,7 +78,8 @@ public class QuizActivity extends Activity {
 				rda.setTextColor(getResources().getColor(R.color.bgColor));
 				rdb.setTextColor(getResources().getColor(R.color.bgColor));
 				rdd.setTextColor(getResources().getColor(R.color.bgColor));
-				selected=rdc.getText().toString();
+				//selected=rdc.getText().toString();
+				selected="3";
 			}
 		});
 		rdd.setOnClickListener(new View.OnClickListener() {
@@ -90,7 +93,8 @@ public class QuizActivity extends Activity {
 				rdb.setTextColor(getResources().getColor(R.color.bgColor));
 				rda.setTextColor(getResources().getColor(R.color.bgColor));
 				rdc.setTextColor(getResources().getColor(R.color.bgColor));
-				selected=rdd.getText().toString();
+				//selected=rdd.getText().toString();
+				selected="4";
 			}
 		});
 		butNext=(Button)findViewById(R.id.button_nxt);

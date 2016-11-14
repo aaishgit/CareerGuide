@@ -249,11 +249,11 @@ public class Home extends AppCompatActivity/* implements Mainhome.Mainhome_liste
                                         break;
                                     case 5:
                                         break;*/
-                                    try {
+                                   /* try {
                                         fragment1 = (Fragment) fragmentClass.newInstance();
                                     } catch (Exception e) {
                                         e.printStackTrace();
-                                    }
+                                    }*/
                                     // Insert the fragment by replacing any existing fragment
                                     //FragmentManager fragmentManager = getSupportFragmentManager();
                                     //fragmentManager.beginTransaction().replace(R.id.flContent, fragment1).commit();

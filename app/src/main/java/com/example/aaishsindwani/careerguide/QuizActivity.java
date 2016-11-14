@@ -2,6 +2,7 @@ package com.example.aaishsindwani.careerguide;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
@@ -20,8 +21,9 @@ public class QuizActivity extends Activity {
 	int qid=0;
 	Question currentQ;
 	TextView txtQuestion;
-	RadioButton rda, rdb, rdc;
+	Button rda, rdb, rdc, rdd;
 	Button butNext;
+	String selected;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -31,18 +33,75 @@ public class QuizActivity extends Activity {
 		quesList=db.getAllQuestions();
 		currentQ=quesList.get(qid);
 		txtQuestion=(TextView)findViewById(R.id.textView1);
-		rda=(RadioButton)findViewById(R.id.radio0);
-		rdb=(RadioButton)findViewById(R.id.radio1);
-		rdc=(RadioButton)findViewById(R.id.radio2);
-		butNext=(Button)findViewById(R.id.button1);
+		rda=(Button)findViewById(R.id.radio0);
+		rdb=(Button)findViewById(R.id.radio1);
+		rdc=(Button)findViewById(R.id.radio2);
+		rdd=(Button)findViewById(R.id.radio3);
+		rda.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				rda.setBackgroundColor(getResources().getColor(R.color.regbg));
+				rdb.setBackgroundColor(getResources().getColor(R.color.white_col));
+				rdc.setBackgroundColor(getResources().getColor(R.color.white_col));
+				rdd.setBackgroundColor(getResources().getColor(R.color.white_col));
+				rda.setTextColor(Color.WHITE);
+				rdb.setTextColor(getResources().getColor(R.color.bgColor));
+				rdc.setTextColor(getResources().getColor(R.color.bgColor));
+				rdd.setTextColor(getResources().getColor(R.color.bgColor));
+				selected=rda.getText().toString();
+			}
+		});
+		rdb.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				rdb.setBackgroundColor(getResources().getColor(R.color.regbg));
+				rda.setBackgroundColor(getResources().getColor(R.color.white_col));
+				rdc.setBackgroundColor(getResources().getColor(R.color.white_col));
+				rdd.setBackgroundColor(getResources().getColor(R.color.white_col));
+				rdb.setTextColor(Color.WHITE);
+				rda.setTextColor(getResources().getColor(R.color.bgColor));
+				rdd.setTextColor(getResources().getColor(R.color.bgColor));
+				rdc.setTextColor(getResources().getColor(R.color.bgColor));
+				selected=rdb.getText().toString();
+			}
+		});
+		rdc.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				rdc.setBackgroundColor(getResources().getColor(R.color.regbg));
+				rdb.setBackgroundColor(getResources().getColor(R.color.white_col));
+				rda.setBackgroundColor(getResources().getColor(R.color.white_col));
+				rdd.setBackgroundColor(getResources().getColor(R.color.white_col));
+				rdc.setTextColor(Color.WHITE);
+				rda.setTextColor(getResources().getColor(R.color.bgColor));
+				rdb.setTextColor(getResources().getColor(R.color.bgColor));
+				rdd.setTextColor(getResources().getColor(R.color.bgColor));
+				selected=rdc.getText().toString();
+			}
+		});
+		rdd.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				rdd.setBackgroundColor(getResources().getColor(R.color.regbg));
+				rdb.setBackgroundColor(getResources().getColor(R.color.white_col));
+				rdc.setBackgroundColor(getResources().getColor(R.color.white_col));
+				rda.setBackgroundColor(getResources().getColor(R.color.white_col));
+				rdd.setTextColor(Color.WHITE);
+				rdb.setTextColor(getResources().getColor(R.color.bgColor));
+				rda.setTextColor(getResources().getColor(R.color.bgColor));
+				rdc.setTextColor(getResources().getColor(R.color.bgColor));
+				selected=rdd.getText().toString();
+			}
+		});
+		butNext=(Button)findViewById(R.id.button_nxt);
 		setQuestionView();
 		butNext.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
 				RadioGroup grp=(RadioGroup)findViewById(R.id.radioGroup1);
-				RadioButton answer=(RadioButton)findViewById(grp.getCheckedRadioButtonId());
-				Log.d("yourans", currentQ.getANSWER()+" "+answer.getText());
-				if(currentQ.getANSWER().equals(answer.getText()))
+				//RadioButton answer=(RadioButton)findViewById(grp.getCheckedRadioButtonId());
+				//Log.d("yourans", currentQ.getANSWER()+" "+answer.getText());
+				if(currentQ.getANSWER().equals(selected))
 				{
 					score++;
 					Log.d("score", "Your score"+score);
@@ -73,6 +132,7 @@ public class QuizActivity extends Activity {
 		rda.setText(currentQ.getOPTA());
 		rdb.setText(currentQ.getOPTB());
 		rdc.setText(currentQ.getOPTC());
+		rdd.setText(currentQ.getOPTD());
 		qid++;
 	}
 

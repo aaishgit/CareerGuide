@@ -16,34 +16,70 @@
             android:id="@+id/textView1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
             android:text="Large Text"
+            android:textSize="40sp"
+            android:textColor="@color/white_col"
+            android:gravity="center_horizontal"
             android:textAppearance="?android:attr/textAppearanceLarge" />
         <RadioGroup
             android:id="@+id/radioGroup1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
             android:layout_weight="0.04" >
-            <RadioButton
+            <Button
                 android:id="@+id/radio0"
                 android:layout_width="match_parent"
+                android:textColor="@color/bgColor"
                 android:layout_height="wrap_content"
-                android:checked="true"
+                android:background="@drawable/button"
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
                 android:text="RadioButton" />
-            <RadioButton
+            <Button
                 android:id="@+id/radio1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textColor="@color/bgColor"
+                android:background="@drawable/button"
+                android:layout_marginBottom="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="10dp"
                 android:text="RadioButton" />
-            <RadioButton
+            <Button
                 android:id="@+id/radio2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textColor="@color/bgColor"
+                android:background="@drawable/button"
+                android:layout_marginBottom="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="10dp"
                 android:text="RadioButton" />
+            <Button
+                android:id="@+id/radio3"
+                android:text="RadioButton"
+                android:layout_width="match_parent"
+                android:background="@drawable/button"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="10dp"
+                android:textColor="@color/bgColor"
+                android:layout_height="wrap_content" />
         </RadioGroup>
 
         <Button
-                android:id="@+id/button1"
+                android:id="@+id/button_nxt"
                 android:layout_width="match_parent"
+                android:background="@drawable/button"
+                android:textColor="@color/white_col"
+                android:backgroundTint="@color/pink"
                 android:layout_height="wrap_content"
                 android:text="Next" />
     </LinearLayout>

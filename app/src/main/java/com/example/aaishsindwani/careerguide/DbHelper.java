@@ -22,6 +22,7 @@ public class DbHelper extends SQLiteOpenHelper {
 	private static final String KEY_OPTA= "opta"; //option a
 	private static final String KEY_OPTB= "optb"; //option b
 	private static final String KEY_OPTC= "optc"; //option c
+	private static final String KEY_OPTD= "optd"; //option c
 	private SQLiteDatabase dbase;
 	public DbHelper(Context context) {
 		super(context, DATABASE_NAME, null, DATABASE_VERSION);
@@ -32,22 +33,22 @@ public class DbHelper extends SQLiteOpenHelper {
 		String sql = "CREATE TABLE IF NOT EXISTS " + TABLE_QUEST + " ( "
 				+ KEY_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " + KEY_QUES
 				+ " TEXT, " + KEY_ANSWER+ " TEXT, "+KEY_OPTA +" TEXT, "
-				+KEY_OPTB +" TEXT, "+KEY_OPTC+" TEXT)";
+				+KEY_OPTB +" TEXT, "+KEY_OPTC+" TEXT, "+KEY_OPTD+" TEXT)";
 		db.execSQL(sql);		
 		addQuestions();
 		//db.close();
 	}
 	private void addQuestions()
 	{
-		Question q1=new Question("What is JP?","Jalur Pesawat", "Jack sParrow", "Jasa Programmer", "Jasa Programmer");
+		Question q1=new Question("What is JP?","Jalur Pesawat", "Jack sParrow", "Jasa Programmer", "jo bhi","Jasa Programmer");
 		this.addQuestion(q1);
-		Question q2=new Question("where the JP place?", "Monas, Jakarta", "Gelondong, Bangun Tapan, bantul", "Gelondong, Bangun Tapan, bandul", "Gelondong, Bangun Tapan, bantul");
+		Question q2=new Question("where the JP place?", "Monas, Jakarta", "Gelondong, Bangun Tapan, bantul", "Gelondong, Bangun Tapan, bandul","india", "Gelondong, Bangun Tapan, bantul");
 		this.addQuestion(q2);
-		Question q3=new Question("who is CEO of the JP?","Usman and Jack", "Jack and Rully","Rully and Usman", "Rully and Usman" );
+		Question q3=new Question("who is CEO of the JP?","Usman and Jack", "Jack and Rully","Rully and Usman","ok", "Rully and Usman" );
 		this.addQuestion(q3);
-		Question q4=new Question("what do you know about JP?", "JP is programmer home", "JP also realigy home", "all answer is true","all answer is true");
+		Question q4=new Question("what do you know about JP?", "JP is programmer home", "what the hell","JP also realigy home", "all answer is true","all answer is true");
 		this.addQuestion(q4);
-		Question q5=new Question("what do you learn in JP?","Realigy","Programming","all answer is true","all answer is true");
+		Question q5=new Question("what do you learn in JP?","Realigy","Programming","all answer is true","doyou think","all answer is true");
 		this.addQuestion(q5);
 	}
 	@Override
@@ -66,6 +67,7 @@ public class DbHelper extends SQLiteOpenHelper {
 		values.put(KEY_OPTA, quest.getOPTA());
 		values.put(KEY_OPTB, quest.getOPTB());
 		values.put(KEY_OPTC, quest.getOPTC());
+		values.put(KEY_OPTD, quest.getOPTD());
 		// Inserting Row
 		dbase.insert(TABLE_QUEST, null, values);		
 	}
@@ -85,6 +87,7 @@ public class DbHelper extends SQLiteOpenHelper {
 				quest.setOPTA(cursor.getString(3));
 				quest.setOPTB(cursor.getString(4));
 				quest.setOPTC(cursor.getString(5));
+				quest.setOPTD(cursor.getString(6));
 				quesList.add(quest);
 			} while (cursor.moveToNext());
 		}

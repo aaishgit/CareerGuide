@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:background="@color/bgColor"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.example.aaishsindwani.careerguide.marks">
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageView_marks"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/instr"
+        android:gravity="center_horizontal"
+        android:textColor="#ffffff"
+        android:textSize="22sp"
+        android:layout_marginBottom="20dp"
+        android:layout_below="@+id/imageView_marks"
+        android:text="Enter your previous standard marks"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_below="@+id/instr"
+        android:id="@+id/maths"
+        android:layout_marginBottom="10dp"
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:ems="10"
+            android:id="@+id/textview_maths"
+            android:textColor="#ffffff"
+            android:layout_centerHorizontal="true"
+            android:textAlignment="center"
+            android:editable="false"
+            android:gravity="center_vertical"
+            android:text="Maths:"
+            android:textSize="20sp"
+            android:layout_weight="2" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:background="@drawable/edittext"
+            android:ems="10"
+            android:id="@+id/textview_maths_marks"
+            android:layout_marginBottom="28dp"
+            android:textColor="#000000"
+            android:layout_centerHorizontal="true"
+            android:textAlignment="center"
+            android:editable="false"
+            android:gravity="center_vertical"
+            android:hint="Marks"
+            android:textSize="20sp"
+            android:layout_weight="1" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/science"
+        android:orientation="horizontal"
+        android:layout_below="@+id/maths"
+        android:layout_marginBottom="10dp"
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:ems="10"
+            android:id="@+id/textview_science"
+            android:textColor="#ffffff"
+            android:layout_centerHorizontal="true"
+            android:textAlignment="center"
+            android:editable="false"
+            android:gravity="center_vertical"
+            android:text="Science:"
+            android:textSize="20sp"
+            android:layout_weight="2" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:background="@drawable/edittext"
+            android:ems="10"
+            android:id="@+id/textview_maths_science"
+            android:layout_marginBottom="28dp"
+            android:textColor="#000000"
+            android:layout_centerHorizontal="true"
+            android:textAlignment="center"
+            android:editable="false"
+            android:gravity="center_vertical"
+            android:hint="Marks"
+            android:textSize="20sp"
+            android:layout_weight="1" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:id="@+id/sst"
+        android:layout_below="@+id/science"
+        android:layout_marginBottom="10dp"
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:id="@+id/textview_sst"
+            android:textColor="#ffffff"
+            android:gravity="top"
+            android:layout_centerHorizontal="true"
+            android:textAlignment="center"
+            android:editable="false"
+            android:text="Social Science:"
+            android:textSize="20sp"
+            android:layout_weight="2" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:background="@drawable/edittext"
+            android:ems="10"
+            android:id="@+id/textview_maths_sst"
+            android:layout_marginBottom="28dp"
+            android:textColor="#000000"
+            android:layout_centerHorizontal="true"
+            android:textAlignment="center"
+            android:editable="false"
+            android:gravity="center_vertical"
+            android:hint="Marks"
+            android:textSize="20sp"
+            android:layout_weight="1" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:id="@+id/english"
+        android:layout_below="@+id/sst"
+        android:layout_marginBottom="10dp"
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:ems="10"
+            android:id="@+id/textview_english"
+            android:textColor="#ffffff"
+            android:layout_centerHorizontal="true"
+            android:textAlignment="center"
+            android:editable="false"
+            android:gravity="center_vertical"
+            android:text="English:"
+            android:textSize="20sp"
+            android:layout_weight="2" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:background="@drawable/edittext"
+            android:ems="10"
+            android:id="@+id/textview_english_marks"
+            android:layout_marginBottom="28dp"
+            android:textColor="#000000"
+            android:layout_centerHorizontal="true"
+            android:textAlignment="center"
+            android:editable="false"
+            android:gravity="center_vertical"
+            android:hint="Marks"
+            android:textSize="20sp"
+            android:layout_weight="1" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:id="@+id/hindi"
+        android:layout_below="@+id/english"
+        android:layout_marginBottom="10dp"
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:ems="10"
+            android:id="@+id/textview_hindi"
+            android:textColor="#ffffff"
+            android:layout_centerHorizontal="true"
+            android:textAlignment="center"
+            android:editable="false"
+            android:gravity="center_vertical"
+            android:text="Maths:"
+            android:textSize="20sp"
+            android:layout_weight="2" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:background="@drawable/edittext"
+            android:ems="10"
+            android:id="@+id/textview_hindi_marks"
+            android:layout_marginBottom="28dp"
+            android:textColor="#000000"
+            android:layout_centerHorizontal="true"
+            android:textAlignment="center"
+            android:editable="false"
+            android:gravity="center_vertical"
+            android:hint="Marks"
+            android:textSize="20sp"
+            android:layout_weight="1" />
+    </LinearLayout>
+
+
+
+
+    <Button
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:text="Submit Marks"
+        android:id="@+id/button9_marks"
+        android:background="@drawable/button"
+        android:layout_below="@+id/hindi"
+        android:layout_centerHorizontal="true"
+        android:textColor="@color/bgColor" />
+
+</RelativeLayout>
+</ScrollView>

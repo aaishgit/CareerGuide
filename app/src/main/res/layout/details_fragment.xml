@@ -62,6 +62,4 @@
         android:layout_below="@+id/textview_frag_class"
         android:layout_centerHorizontal="true"
         android:textColor="@color/bgColor" />
-
-
 </RelativeLayout>

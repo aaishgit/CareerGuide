@@ -30,7 +30,7 @@
             app:outerColor="@color/white"
             app:progress="0"
             app:textColor="@color/bgColor"
-            app:progressColor="@color/regbg"
+            app:progressColor="@color/optselected"
             app:textSize="23sp"
             android:foregroundGravity="center_horizontal" />
             <!--android:layout_marginBottom="20dp"

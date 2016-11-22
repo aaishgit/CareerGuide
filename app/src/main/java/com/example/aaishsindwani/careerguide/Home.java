@@ -1,12 +1,9 @@
 package com.example.aaishsindwani.careerguide;
 
-import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AlertDialog;
@@ -18,50 +15,12 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ScrollView;
-import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
 
-import android.content.Context;
-import android.content.DialogInterface;
-import android.content.Intent;
-import android.content.SharedPreferences;
-import android.graphics.Color;
-import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v7.app.AlertDialog;
-import android.util.Log;
-import android.view.MenuInflater;
-import android.view.MotionEvent;
-import android.view.View;
-import android.support.design.widget.NavigationView;
-import android.support.v4.view.GravityCompat;
-import android.support.v4.widget.DrawerLayout;
-import android.support.v7.app.ActionBarDrawerToggle;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
-import android.view.Menu;
-import android.view.MenuItem;
-import android.widget.ScrollView;
-import android.widget.Toast;
-
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.database.ChildEventListener;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
 import com.mikepenz.materialdrawer.AccountHeader;
 import com.mikepenz.materialdrawer.AccountHeaderBuilder;
 import com.mikepenz.materialdrawer.Drawer;
@@ -69,9 +28,7 @@ import com.mikepenz.materialdrawer.DrawerBuilder;
 import com.mikepenz.materialdrawer.model.DividerDrawerItem;
 import com.mikepenz.materialdrawer.model.PrimaryDrawerItem;
 import com.mikepenz.materialdrawer.model.ProfileDrawerItem;
-import com.mikepenz.materialdrawer.model.SecondaryDrawerItem;
 import com.mikepenz.materialdrawer.model.interfaces.IDrawerItem;
-import com.mikepenz.materialdrawer.model.interfaces.IProfile;
 
 public class Home extends AppCompatActivity/* implements Mainhome.Mainhome_listener, Download_fragment.Download_fragment_listener */{
     FirebaseAuth currAuth;
@@ -121,7 +78,7 @@ public class Home extends AppCompatActivity/* implements Mainhome.Mainhome_liste
                 .withIcon(R.mipmap.academic).withSelectedTextColor(getResources().getColor(R.color.pink))
                 .withSelectedColor(getResources().getColor(R.color.selected)).withSelectedIcon(R.mipmap.academic_selected);
         final PrimaryDrawerItem item5 = new PrimaryDrawerItem().withIdentifier(5).withName("Marks in Previous Standard").withTextColor(Color.BLACK)
-                .withIcon(R.mipmap.marks).withSelectedTextColor(getResources().getColor(R.color.pink))
+                .withIcon(R.mipmap.marks_back).withSelectedTextColor(getResources().getColor(R.color.pink))
                 .withSelectedColor(getResources().getColor(R.color.selected)).withSelectedIcon(R.mipmap.marks_selected);
         final PrimaryDrawerItem item6 = new PrimaryDrawerItem().withIdentifier(6).withName("Generate Results").withTextColor(Color.BLACK)
                 .withIcon(R.mipmap.results).withSelectedTextColor(getResources().getColor(R.color.pink))
@@ -216,12 +173,12 @@ public class Home extends AppCompatActivity/* implements Mainhome.Mainhome_liste
                                             });
                                             ald.show();
                                             break;
-                                        /*case 6:
-                                            Intent in1 = new Intent(Home.this, Apppreference.class);
+                                        case 6:
+                                            Intent in1 = new Intent(Home.this, marks.class);
                                             startActivity(in1);
                                             result.setSelection(1);
                                             result.closeDrawer();
-                                            break;*/
+                                            break;
                                         case 10:
                                             result.setSelection(1);
                                             result.closeDrawer();

@@ -50,7 +50,7 @@ public class QuizActivity extends Activity {
 		rdb=(Button)findViewById(R.id.radio1);
 		rdc=(Button)findViewById(R.id.radio2);
 		rdd=(Button)findViewById(R.id.radio3);
-		mCountDownView.setTimer(30000);
+		mCountDownView.setTimer(60000);
 		mCountDownView.start();
 		mCountDownView.setListener(new ContinuableCircleCountDownView.OnCountDownCompletedListener() {
 			@Override
@@ -254,7 +254,7 @@ public class QuizActivity extends Activity {
 				arts_scrore++;
 			}
 		}
-		if(qid<6){
+		if(qid<20){
 			currentQ=quesList.get(qid);
 			setQuestionView();
 		}else{

@@ -102,11 +102,11 @@ public class sign_in extends AppCompatActivity implements View.OnClickListener {
                                         "onnection", Toast.LENGTH_SHORT).show();
                                 dotloader.setVisibility(View.INVISIBLE);
                             } else {
-                                //FirebaseUser myuser = myauth.getCurrentUser();
-                                //String uid = myuser.getUid().toString();
-                                //FirebaseDatabase userRef = FirebaseDatabase.getInstance();
-                                //DatabaseReference userDb = userRef.getReference("users").child(uid).child("check_details");
-                                /*userDb.addListenerForSingleValueEvent(new ValueEventListener() {
+                                FirebaseUser myuser = myauth.getCurrentUser();
+                                String uid = myuser.getUid().toString();
+                                FirebaseDatabase userRef = FirebaseDatabase.getInstance();
+                                DatabaseReference userDb = userRef.getReference("users").child(uid).child("check_details");
+                                userDb.addListenerForSingleValueEvent(new ValueEventListener() {
                                     @Override
                                     public void onDataChange(DataSnapshot dataSnapshot) {
                                         boolean val = dataSnapshot.getValue(boolean.class);
@@ -116,7 +116,7 @@ public class sign_in extends AppCompatActivity implements View.OnClickListener {
                                             startActivity(home2);
                                             dotloader.setVisibility(View.INVISIBLE);
                                             finish();
-                                /*
+
                                         } else {
                                             Intent in_details = new Intent(sign_in.this, Details.class);
                                             startActivity(in_details);
@@ -129,7 +129,7 @@ public class sign_in extends AppCompatActivity implements View.OnClickListener {
                                     public void onCancelled(DatabaseError databaseError) {
                                         Toast.makeText(sign_in.this, "error", Toast.LENGTH_SHORT).show();
                                     }
-                                });*/
+                                });
                             }
                         }
                     });

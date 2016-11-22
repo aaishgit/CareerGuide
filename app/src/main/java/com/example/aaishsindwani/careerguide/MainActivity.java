@@ -129,13 +129,13 @@ public class MainActivity extends AppCompatActivity implements FirebaseAuth.Auth
                 startActivity(in);
                 finish();
             } else {
-                Intent home = new Intent(MainActivity.this, Home.class);
-                startActivity(home);
-                finish();
-                //FirebaseDatabase userRef = FirebaseDatabase.getInstance();
-                //String uid = myuser.getUid().toString();
-                //DatabaseReference userDb = userRef.getReference("users").child(uid).child("check_details");
-                /*userDb.addListenerForSingleValueEvent(new ValueEventListener() {
+                //Intent home = new Intent(MainActivity.this, Home.class);
+                //startActivity(home);
+                //finish();
+                FirebaseDatabase userRef = FirebaseDatabase.getInstance();
+                String uid = myuser.getUid().toString();
+                DatabaseReference userDb = userRef.getReference("users").child(uid).child("check_details");
+                userDb.addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(DataSnapshot dataSnapshot) {
                         boolean val = dataSnapshot.getValue(boolean.class);
@@ -155,7 +155,7 @@ public class MainActivity extends AppCompatActivity implements FirebaseAuth.Auth
                     public void onCancelled(DatabaseError databaseError) {
                         Toast.makeText(MainActivity.this, "error", Toast.LENGTH_SHORT).show();
                     }
-                });*/
+                });
             }
         }
     }

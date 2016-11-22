@@ -173,12 +173,20 @@ public class Home extends AppCompatActivity/* implements Mainhome.Mainhome_liste
                                         /*case 1:
                                             fragmentClass = Mainhome.class;
                                             result.closeDrawer();
-                                            break;
+                                            break;*/
                                         case 2:
                                             fragmentClass = Details_fragment.class;
                                             result.closeDrawer();
+                                            try {
+                                                fragment1 = (Fragment) fragmentClass.newInstance();
+                                            } catch (Exception e) {
+                                                e.printStackTrace();
+                                            }
+                                            // Insert the fragment by replacing any existing fragment
+                                            FragmentManager fragmentManager = getSupportFragmentManager();
+                                            fragmentManager.beginTransaction().replace(R.id.flContent, fragment1).commit();
                                             break;
-                                        case 3:
+                                        /*case 3:
                                             fragmentClass = Myuploads.class;
                                             result.closeDrawer();
                                             break;

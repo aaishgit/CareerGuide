@@ -27,13 +27,14 @@ import java.util.List;
 public class QuizActivity extends Activity {
 	List<Question> quesList;
 	CountDownTimer cdt;
-	int score=0;
+	//int score=0;
 	int qid=0;
 	Question currentQ;
 	TextView txtQuestion;
 	Button rda, rdb, rdc, rdd;
 	Button butNext;
 	String selected;
+	int med_score=0,comm_score=0,arts_scrore=0,engg_score=0;
 	ContinuableCircleCountDownView mCountDownView;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -49,7 +50,7 @@ public class QuizActivity extends Activity {
 		rdb=(Button)findViewById(R.id.radio1);
 		rdc=(Button)findViewById(R.id.radio2);
 		rdd=(Button)findViewById(R.id.radio3);
-		mCountDownView.setTimer(15000);
+		mCountDownView.setTimer(30000);
 		mCountDownView.start();
 		mCountDownView.setListener(new ContinuableCircleCountDownView.OnCountDownCompletedListener() {
 			@Override
@@ -59,12 +60,8 @@ public class QuizActivity extends Activity {
 
 			@Override
 			public void onCompleted() {
-				Intent intent = new Intent(QuizActivity.this, ResultActivity.class);
-				Bundle b = new Bundle();
-				b.putInt("score", score); //Your score
-				intent.putExtras(b); //Put your score to your next Intent
-				startActivity(intent);
-				finish();
+				mCountDownView.cancel();
+				nextscreen();
 			}
 		});
 		rda.setOnClickListener(new View.OnClickListener() {
@@ -77,12 +74,12 @@ public class QuizActivity extends Activity {
 					rdd.setBackground(getResources().getDrawable(R.drawable.button));
 				}
 				else{
-				rda.setBackgroundColor(getResources().getColor(R.color.regbg));
+				rda.setBackgroundColor(getResources().getColor(R.color.optselected));
 				rdb.setBackgroundColor(getResources().getColor(R.color.white_col));
 				rdc.setBackgroundColor(getResources().getColor(R.color.white_col));
 				rdd.setBackgroundColor(getResources().getColor(R.color.white_col));
 				}
-				rda.setTextColor(Color.WHITE);
+				rda.setTextColor(Color.BLACK);
 				rdb.setTextColor(getResources().getColor(R.color.bgColor));
 				rdc.setTextColor(getResources().getColor(R.color.bgColor));
 				rdd.setTextColor(getResources().getColor(R.color.bgColor));
@@ -100,12 +97,12 @@ public class QuizActivity extends Activity {
 					rdd.setBackground(getResources().getDrawable(R.drawable.button));
 				}
 				else {
-					rdb.setBackgroundColor(getResources().getColor(R.color.regbg));
+					rdb.setBackgroundColor(getResources().getColor(R.color.optselected));
 					rda.setBackgroundColor(getResources().getColor(R.color.white_col));
 					rdc.setBackgroundColor(getResources().getColor(R.color.white_col));
 					rdd.setBackgroundColor(getResources().getColor(R.color.white_col));
 				}
-				rdb.setTextColor(Color.WHITE);
+				rdb.setTextColor(Color.BLACK);
 				rda.setTextColor(getResources().getColor(R.color.bgColor));
 				rdd.setTextColor(getResources().getColor(R.color.bgColor));
 				rdc.setTextColor(getResources().getColor(R.color.bgColor));
@@ -123,12 +120,12 @@ public class QuizActivity extends Activity {
 					rdd.setBackground(getResources().getDrawable(R.drawable.button));
 				}
 				else {
-					rdc.setBackgroundColor(getResources().getColor(R.color.regbg));
+					rdc.setBackgroundColor(getResources().getColor(R.color.optselected));
 					rdb.setBackgroundColor(getResources().getColor(R.color.white_col));
 					rda.setBackgroundColor(getResources().getColor(R.color.white_col));
 					rdd.setBackgroundColor(getResources().getColor(R.color.white_col));
 				}
-				rdc.setTextColor(Color.WHITE);
+				rdc.setTextColor(Color.BLACK);
 				rda.setTextColor(getResources().getColor(R.color.bgColor));
 				rdb.setTextColor(getResources().getColor(R.color.bgColor));
 				rdd.setTextColor(getResources().getColor(R.color.bgColor));
@@ -146,12 +143,12 @@ public class QuizActivity extends Activity {
 					rda.setBackground(getResources().getDrawable(R.drawable.button));
 				}
 				else{
-					rdd.setBackgroundColor(getResources().getColor(R.color.regbg));
+					rdd.setBackgroundColor(getResources().getColor(R.color.optselected));
 					rdb.setBackgroundColor(getResources().getColor(R.color.white_col));
 					rdc.setBackgroundColor(getResources().getColor(R.color.white_col));
 					rda.setBackgroundColor(getResources().getColor(R.color.white_col));
 				}
-				rdd.setTextColor(Color.WHITE);
+				rdd.setTextColor(Color.BLACK);
 				rdb.setTextColor(getResources().getColor(R.color.bgColor));
 				rda.setTextColor(getResources().getColor(R.color.bgColor));
 				rdc.setTextColor(getResources().getColor(R.color.bgColor));
@@ -164,43 +161,10 @@ public class QuizActivity extends Activity {
 		butNext.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				RadioGroup grp=(RadioGroup)findViewById(R.id.radioGroup1);
-				if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
-					rdd.setBackground(getResources().getDrawable(R.drawable.button));
-					rdb.setBackground(getResources().getDrawable(R.drawable.button));
-					rdc.setBackground(getResources().getDrawable(R.drawable.button));
-					rda.setBackground(getResources().getDrawable(R.drawable.button));
-				}
-				else{
-					rdd.setBackgroundColor(getResources().getColor(R.color.white_col));
-					rdb.setBackgroundColor(getResources().getColor(R.color.white_col));
-					rdc.setBackgroundColor(getResources().getColor(R.color.white_col));
-					rda.setBackgroundColor(getResources().getColor(R.color.white_col));
-				}
-				rdd.setTextColor(getResources().getColor(R.color.bgColor));
-				rdb.setTextColor(getResources().getColor(R.color.bgColor));
-				rda.setTextColor(getResources().getColor(R.color.bgColor));
-				rdc.setTextColor(getResources().getColor(R.color.bgColor));
-				//RadioButton answer=(RadioButton)findViewById(grp.getCheckedRadioButtonId());
-				//Log.d("yourans", currentQ.getANSWER()+" "+answer.getText());
-				if(currentQ.getANSWER().equals(selected))
-				{
-					score++;
-					Log.d("score", "Your score"+score);
-				}
-				if(qid<5){					
-					currentQ=quesList.get(qid);
-					setQuestionView();
-				}else{
-					Intent intent = new Intent(QuizActivity.this, ResultActivity.class);
-					Bundle b = new Bundle();
-					b.putInt("score", score); //Your score
-					intent.putExtras(b); //Put your score to your next Intent
-					startActivity(intent);
-					finish();
-				}
-				selected="0";
+				mCountDownView.cancel();
+				nextscreen();
 			}
+
 		});
 	}
 	/*@Override
@@ -209,17 +173,7 @@ public class QuizActivity extends Activity {
 		getMenuInflater().inflate(R.menu.activity_quiz, menu);
 		return true;
 	}*/
-	private void setQuestionView()
-	{
-		txtQuestion.setText(currentQ.getQUESTION());
-		rda.setText(currentQ.getOPTA());
-		rdb.setText(currentQ.getOPTB());
-		rdc.setText(currentQ.getOPTC());
-		rdd.setText(currentQ.getOPTD());
-		qid++;
-	}
-
-	private void start(){
+	/*private void start(){
 		cdt=new CountDownTimer(15 * 1000, 1000) {
 			@Override
 			public void onTick(long millisUntilFinished) {
@@ -232,7 +186,7 @@ public class QuizActivity extends Activity {
 			}
 		};
 
-	}
+	}*/
 
 	@Override
 	public void onBackPressed() {
@@ -262,4 +216,71 @@ public class QuizActivity extends Activity {
 		getActionBar().setLogo(R.mipmap.ic_launcher);
 		getActionBar().setDisplayUseLogoEnabled(true);
 	}*/
+	public void nextscreen(){
+		RadioGroup grp=(RadioGroup)findViewById(R.id.radioGroup1);
+		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+			rdd.setBackground(getResources().getDrawable(R.drawable.button));
+			rdb.setBackground(getResources().getDrawable(R.drawable.button));
+			rdc.setBackground(getResources().getDrawable(R.drawable.button));
+			rda.setBackground(getResources().getDrawable(R.drawable.button));
+		}
+		else{
+			rdd.setBackgroundColor(getResources().getColor(R.color.white_col));
+			rdb.setBackgroundColor(getResources().getColor(R.color.white_col));
+			rdc.setBackgroundColor(getResources().getColor(R.color.white_col));
+			rda.setBackgroundColor(getResources().getColor(R.color.white_col));
+		}
+		rdd.setTextColor(getResources().getColor(R.color.bgColor));
+		rdb.setTextColor(getResources().getColor(R.color.bgColor));
+		rda.setTextColor(getResources().getColor(R.color.bgColor));
+		rdc.setTextColor(getResources().getColor(R.color.bgColor));
+		//RadioButton answer=(RadioButton)findViewById(grp.getCheckedRadioButtonId());
+		//Log.d("yourans", currentQ.getANSWER()+" "+answer.getText());
+		if(currentQ.getANSWER().equals(selected))
+		{
+
+			String stream= currentQ.getSTREAM();
+			Log.e("stream is ",stream);
+			if(stream.equals("MEDI")){
+				med_score++;
+			}
+			else if(stream.equals("ENGG")){
+				engg_score++;
+			}
+			else if(stream.equals("COMM")){
+				comm_score++;
+			}
+			else if(stream.equals("ARTS")){
+				arts_scrore++;
+			}
+		}
+		if(qid<6){
+			currentQ=quesList.get(qid);
+			setQuestionView();
+		}else{
+			Intent intent = new Intent(QuizActivity.this, ResultActivity.class);
+			Bundle b = new Bundle();
+			b.putInt("engg_score", engg_score);
+			b.putInt("medi_score", med_score);
+			b.putInt("comm_score", comm_score);
+			b.putInt("arts_score", arts_scrore);
+			intent.putExtras(b); //Put your score to your next Intent
+			startActivity(intent);
+			finish();
+		}
+		selected="0";
+	}
+
+	private void setQuestionView()
+	{
+		txtQuestion.setText(currentQ.getQUESTION());
+		rda.setText(currentQ.getOPTA());
+		rdb.setText(currentQ.getOPTB());
+		rdc.setText(currentQ.getOPTC());
+		rdd.setText(currentQ.getOPTD());
+		qid++;
+		mCountDownView.setTimer(30000);
+		mCountDownView.start();
+	}
+
 }

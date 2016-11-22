@@ -17,6 +17,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".log_screen"
+            android:theme="@style/aaish"
             />
         <activity android:name=".sign_in" />
         <activity android:name=".Details" />

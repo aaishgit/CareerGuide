@@ -2,11 +2,13 @@ package com.example.aaishsindwani.careerguide;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.widget.RatingBar;
 import android.widget.TextView;
 
 public class ResultActivity extends Activity {
+	int med_score=0,arts_scrore=0,engg_score=0,comm_score=0;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -19,20 +21,18 @@ public class ResultActivity extends Activity {
 		TextView t=(TextView)findViewById(R.id.textResult);
 		//get score
 		Bundle b = getIntent().getExtras();
-		int score= b.getInt("score");
+		med_score=b.getInt("medi_score",0);
+		arts_scrore=b.getInt("arts_score",0);
+		comm_score=b.getInt("comm_score",0);
+		engg_score=b.getInt("engg_score",0);
+		Log.e("engg",String.valueOf(engg_score));
+		Log.e("medi",String.valueOf(med_score));
+		Log.e("comm",String.valueOf(comm_score));
+		Log.e("arts",String.valueOf(arts_scrore));
+
 		//display score
-		bar.setRating(score);
-		switch (score)
-		{
-		case 1:
-		case 2: t.setText("Opps, try again bro, keep learning");
-		break;
-		case 3:
-		case 4:t.setText("Hmmmm.. maybe you have been reading a lot of JasaProgrammer quiz");
-		break;
-		case 5:t.setText("Who are you? A student in JP???");
-		break;
-		}
+		bar.setRating(med_score);
+		t.setText("medical= "+med_score+" engg= "+engg_score+" comm= "+comm_score+" arts= "+arts_scrore);
 	}
 	/*@Override
 	public boolean onCreateOptionsMenu(Menu menu) {

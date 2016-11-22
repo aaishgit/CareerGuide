@@ -15,6 +15,7 @@
     <color name="sliderbg">#f7f8f9</color>
     <color name="statuscolor">#035c8c</color>
     <color name="hintcolor">#7d000000</color>
+    <color name="optselected">#ffdd00</color>
     <array name="dot_colors">
         <item>#03A9F4</item>
         <item>#E65100</item>

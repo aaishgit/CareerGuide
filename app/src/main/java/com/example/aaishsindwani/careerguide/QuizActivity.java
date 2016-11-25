@@ -258,13 +258,14 @@ public class QuizActivity extends Activity {
 			currentQ=quesList.get(qid);
 			setQuestionView();
 		}else{
-			Intent intent = new Intent(QuizActivity.this, ResultActivity.class);
+			Intent intent = new Intent(QuizActivity.this, marks.class);
 			Bundle b = new Bundle();
 			b.putInt("engg_score", engg_score);
 			b.putInt("medi_score", med_score);
 			b.putInt("comm_score", comm_score);
 			b.putInt("arts_score", arts_scrore);
 			intent.putExtras(b); //Put your score to your next Intent
+			intent.putExtra("where2",3);
 			startActivity(intent);
 			finish();
 		}

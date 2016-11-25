@@ -3,6 +3,7 @@ package com.example.aaishsindwani.careerguide;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -175,6 +176,7 @@ public class Home extends AppCompatActivity/* implements Mainhome.Mainhome_liste
                                             break;
                                         case 6:
                                             Intent in1 = new Intent(Home.this, marks.class);
+                                            in1.putExtra("where2",4);
                                             startActivity(in1);
                                             result.setSelection(1);
                                             result.closeDrawer();
@@ -231,7 +233,9 @@ public class Home extends AppCompatActivity/* implements Mainhome.Mainhome_liste
                             }*/
                         }).build();
                 result.setSelection(1);
+        result.openDrawer();
             }
+
 
            /* @Override
             public void onCancelled(DatabaseError databaseError) {
@@ -288,8 +292,14 @@ public class Home extends AppCompatActivity/* implements Mainhome.Mainhome_liste
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.settings1:
-                Intent in1 = new Intent(this, Apppreference.class);
-                startActivity(in1);
+                Intent sendIntent = new Intent(Intent.ACTION_VIEW);
+                sendIntent.setType("plain/text");
+                sendIntent.setData(Uri.parse("carguideapp@gmail.com"));
+                sendIntent.setClassName("com.google.android.gm", "com.google.android.gm.ComposeActivityGmail");
+                sendIntent.putExtra(Intent.EXTRA_EMAIL, new String[] { "carguideapp@gmail.com" });
+                sendIntent.putExtra(Intent.EXTRA_SUBJECT, "Feedback/Problem");
+                sendIntent.putExtra(Intent.EXTRA_TEXT, "The developer, \n");
+                startActivity(sendIntent);
                 break;
             case R.id.logoutopt:
                 AlertDialog.Builder ald = new AlertDialog.Builder(Home.this);

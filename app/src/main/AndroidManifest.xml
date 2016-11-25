@@ -32,7 +32,8 @@
             android:theme="@style/aaish" />
         <activity android:name=".ResultActivity" />
         <activity android:name=".verify" />
-        <activity android:name=".marks"></activity>
+        <activity android:name=".marks" />
+        <activity android:name=".psychometric"></activity>
     </application>
 
 </manifest>

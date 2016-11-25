@@ -88,34 +88,46 @@ public class register extends AppCompatActivity implements View.OnClickListener 
             pass = generatePassword();
             currentauth.createUserWithEmailAndPassword(emails, pass).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                 @Override
-                public void onComplete(@NonNull Task<AuthResult> task) {
+                public void onComplete(@NonNull final Task<AuthResult> task) {
                     if (!task.isSuccessful()) {
                         Toast.makeText(register.this, "User cannot be created", Toast.LENGTH_SHORT).show();
                         registerdot.setVisibility(View.INVISIBLE);
                     } else {
-                        //FirebaseUser myuser = currentauth.getCurrentUser();
-                        //String uid = myuser.getUid().toString();
-                        //FirebaseDatabase userRef = FirebaseDatabase.getInstance();
-                        /*DatabaseReference userDb = userRef.getReference("users").child(uid).child("check_details");
+                        FirebaseUser myuser = currentauth.getCurrentUser();
+                        final String uid = myuser.getUid().toString();
+                        final FirebaseDatabase userRef = FirebaseDatabase.getInstance();
+                        DatabaseReference userDb = userRef.getReference("users").child(uid).child("check_details");
                         userDb.setValue(false).addOnCompleteListener(new OnCompleteListener<Void>() {
                             @Override
                             public void onComplete(@NonNull Task<Void> task) {
                                 if (!task.isSuccessful()) {
                                     Toast.makeText(register.this, "Reference cant be created", Toast.LENGTH_SHORT).show();
                                     registerdot.setVisibility(View.INVISIBLE);
-                                } else {*/
-                                    Toast.makeText(register.this, "User registered", Toast.LENGTH_SHORT).show();
-                                    Intent verifyclass = new Intent(register.this, verify.class);
-                                    verifyclass.putExtra("where", 1);
-                                    currentauth.signOut();
-                                    //new mytask().execute();
-                                    registerdot.setVisibility(View.INVISIBLE);
-                                    startActivity(verifyclass);
+                                } else {
+                                    DatabaseReference markset=userRef.getReference("users").child(uid).child("marks_set");
+                                    markset.setValue(false).addOnCompleteListener(new OnCompleteListener<Void>() {
+                                        @Override
+                                        public void onComplete(@NonNull Task<Void> task2) {
+                                            if (!task2.isSuccessful()) {
+                                                Toast.makeText(register.this, "Reference2 cant be created", Toast.LENGTH_SHORT).show();
+                                                registerdot.setVisibility(View.INVISIBLE);
+                                            } else {
+                                                Toast.makeText(register.this, "User registered", Toast.LENGTH_SHORT).show();
+                                                Intent verifyclass = new Intent(register.this, verify.class);
+                                                verifyclass.putExtra("where", 1);
+                                                currentauth.signOut();
+                                                //new mytask().execute();
+                                                registerdot.setVisibility(View.INVISIBLE);
+                                                startActivity(verifyclass);
+                                            }
+                                        }
+                                    });
+
                                 }
                             }
-                        //});
-                    //}
-                //}
+                        });
+                    }
+                }
             });
         }
     }

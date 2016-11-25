@@ -1,10 +1,13 @@
 package com.example.aaishsindwani.careerguide;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
+import android.view.View;
+import android.widget.Button;
 import android.widget.RatingBar;
 import android.widget.TextView;
 
@@ -17,22 +20,36 @@ import com.github.mikephil.charting.data.PieDataSet;
 import com.github.mikephil.charting.data.PieEntry;
 import com.github.mikephil.charting.highlight.Highlight;
 import com.github.mikephil.charting.listener.OnChartValueSelectedListener;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.FirebaseDatabase;
+import com.hanks.htextview.HTextView;
+import com.hanks.htextview.HTextViewType;
 import com.mikepenz.materialize.color.Material;
 
 import java.util.ArrayList;
 
-public class ResultActivity extends Activity {
+public class ResultActivity extends Activity implements View.OnClickListener {
 	int med_score=0,arts_scrore=0,engg_score=0,comm_score=0;
 	float medp,artp,engp,comp;
 	private String[] xdata={"Engineering","Medical","Commerce","Arts"};
 	private float[] ydata;
 	PieChart pieChart;
+	Button upload;
+	FirebaseDatabase mydb;
+	FirebaseAuth myauth;
+	FirebaseUser myuser;
+	String uid;
+	HTextView hTextView;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_result);
 		//get text view
-		TextView t=(TextView)findViewById(R.id.textResult);
+		//TextView t=(TextView)findViewById(R.id.textResult);
+		hTextView=(HTextView)findViewById(R.id.text_animate);
+// be sure to set custom typeface before setting the animate type, otherwise the font may not be updated.
+		hTextView.setAnimateType(HTextViewType.LINE);
 		//get score
 		Bundle b = getIntent().getExtras();
 		med_score=b.getInt("medi_score",0);
@@ -43,6 +60,25 @@ public class ResultActivity extends Activity {
 		Log.e("medi",String.valueOf(med_score));
 		Log.e("comm",String.valueOf(comm_score));
 		Log.e("arts",String.valueOf(arts_scrore));
+		myauth=FirebaseAuth.getInstance();
+		myuser=myauth.getCurrentUser();
+		uid=myuser.getUid().toString();
+		upload=(Button)findViewById(R.id.button6_r);
+		upload.setOnClickListener(this);
+		int max=Math.max(Math.max(engg_score,med_score),Math.max(comm_score,arts_scrore));
+		if(max==med_score){
+			hTextView.animateText("Medical");
+		}
+		else if(max==engg_score){
+			hTextView.animateText("Engineering");
+		}
+		else if(max==comm_score){
+			hTextView.animateText("Commerce");
+
+		}
+		else if(max==arts_scrore){
+			hTextView.animateText("Arts");
+		}
 		float sum=engg_score+med_score+comm_score+arts_scrore;
 		engp=engg_score*100/sum;
 		medp=med_score*100/sum;
@@ -51,7 +87,7 @@ public class ResultActivity extends Activity {
 		ydata= new float[]{engg_score,med_score,comm_score,arts_scrore};
 		//display score
 		pieChart=(PieChart)findViewById(R.id.firstchart);
-		t.setText("medical= "+med_score+" engg= "+engg_score+" comm= "+comm_score+" arts= "+arts_scrore);
+		//t.setText("medical= "+med_score+" engg= "+engg_score+" comm= "+comm_score+" arts= "+arts_scrore);
 		pieChart.setRotationEnabled(true);
 		pieChart.setHoleRadius(25f);
 		pieChart.setDrawSliceText(true);
@@ -113,6 +149,14 @@ public class ResultActivity extends Activity {
 		pieChart.setData(piedata);
 		pieChart.invalidate();
 
+	}
+
+	@Override
+	public void onClick(View v) {
+		switch (v.getId()){
+			case R.id.button6_r:
+
+		}
 	}
 
 	/*@Override

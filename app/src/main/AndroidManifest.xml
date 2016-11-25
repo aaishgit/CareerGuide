@@ -33,7 +33,8 @@
         <activity android:name=".ResultActivity" />
         <activity android:name=".verify" />
         <activity android:name=".marks" />
-        <activity android:name=".psychometric"></activity>
+        <activity android:name=".psychometric" />
+        <activity android:name=".Psyresult"></activity>
     </application>
 
 </manifest>

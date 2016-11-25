@@ -147,11 +147,29 @@ public class Home extends AppCompatActivity/* implements Mainhome.Mainhome_liste
                                         /*case 3:
                                             fragmentClass = Myuploads.class;
                                             result.closeDrawer();
-                                            break;
-                                        case 4:
-                                            fragmentClass = Download_fragment.class;
-                                            result.closeDrawer();
                                             break;*/
+                                        case 4:
+                                            result.closeDrawer();
+                                            AlertDialog.Builder apd = new AlertDialog.Builder(Home.this);
+                                            apd.setTitle("Psychometric Quiz Confirmation");
+                                            apd.setIcon(R.mipmap.psychometric);
+                                            apd.setMessage("Do you want to attemp Psychometric Quiz");
+                                            apd.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                                                @Override
+                                                public void onClick(DialogInterface dialogInterface, int i) {
+                                                    result.setSelection(1);
+                                                    Intent academic= new Intent(Home.this,psychometric.class);
+                                                    startActivity(academic);
+                                                }
+                                            });
+                                            apd.setNegativeButton("No", new DialogInterface.OnClickListener() {
+                                                @Override
+                                                public void onClick(DialogInterface dialogInterface, int i) {
+                                                    result.setSelection(1);
+                                                }
+                                            });
+                                            apd.show();
+                                            break;
                                         case 5:
                                             result.closeDrawer();
                                             AlertDialog.Builder ald = new AlertDialog.Builder(Home.this);

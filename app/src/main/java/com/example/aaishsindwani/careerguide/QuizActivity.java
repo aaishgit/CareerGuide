@@ -254,7 +254,7 @@ public class QuizActivity extends Activity {
 				arts_scrore++;
 			}
 		}
-		if(qid<20){
+		if(qid<4){
 			currentQ=quesList.get(qid);
 			setQuestionView();
 		}else{

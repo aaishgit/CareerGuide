@@ -34,7 +34,8 @@
         <activity android:name=".verify" />
         <activity android:name=".marks" />
         <activity android:name=".psychometric" />
-        <activity android:name=".Psyresult"></activity>
+        <activity android:name=".Psyresult" />
+        <activity android:name=".Career_web"></activity>
     </application>
 
 </manifest>

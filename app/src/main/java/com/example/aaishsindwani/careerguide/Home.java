@@ -81,9 +81,6 @@ public class Home extends AppCompatActivity/* implements Mainhome.Mainhome_liste
         final PrimaryDrawerItem item5 = new PrimaryDrawerItem().withIdentifier(5).withName("Marks in Previous Standard").withTextColor(Color.BLACK)
                 .withIcon(R.mipmap.marks_back).withSelectedTextColor(getResources().getColor(R.color.pink))
                 .withSelectedColor(getResources().getColor(R.color.selected)).withSelectedIcon(R.mipmap.marks_selected);
-        final PrimaryDrawerItem item6 = new PrimaryDrawerItem().withIdentifier(6).withName("Generate Results").withTextColor(Color.BLACK)
-                .withIcon(R.mipmap.results).withSelectedTextColor(getResources().getColor(R.color.pink))
-                .withSelectedColor(getResources().getColor(R.color.selected)).withSelectedIcon(R.mipmap.results_selected);
         final PrimaryDrawerItem item7 = new PrimaryDrawerItem().withIdentifier(7).withName("Career Options").withTextColor(Color.BLACK)
                 .withIcon(R.mipmap.career_icon).withSelectedTextColor(getResources().getColor(R.color.pink))
                 .withSelectedColor(getResources().getColor(R.color.selected)).withSelectedIcon(R.mipmap.career_selected_icon);
@@ -120,7 +117,7 @@ public class Home extends AppCompatActivity/* implements Mainhome.Mainhome_liste
                         .withActivity(Home.this)
                         .withToolbar(toolbar)/*.withSliderBackgroundColor(getResources().getColor(R.color.abc)).addStickyDrawerItems(item1,item2)*/
                         .addDrawerItems(item1, item2,new DividerDrawerItem(),item3, item4, item5,
-                                new DividerDrawerItem(), item6, item7, item8)
+                                new DividerDrawerItem(), item7, item8)
                         .withOnDrawerItemClickListener(new Drawer.OnDrawerItemClickListener() {
                             @Override
                             public boolean onItemClick(View view, int position, IDrawerItem drawerItem) {
@@ -199,7 +196,13 @@ public class Home extends AppCompatActivity/* implements Mainhome.Mainhome_liste
                                             result.setSelection(1);
                                             result.closeDrawer();
                                             break;
-                                        case 10:
+                                        case 8:
+                                            result.setSelection(1);
+                                            result.closeDrawer();
+                                            Intent newweb=new Intent(Home.this,Career_web.class);
+                                            startActivity(newweb);
+                                            break;
+                                        case 9:
                                             result.setSelection(1);
                                             result.closeDrawer();
                                             AlertDialog.Builder logout_alert = new AlertDialog.Builder(Home.this);

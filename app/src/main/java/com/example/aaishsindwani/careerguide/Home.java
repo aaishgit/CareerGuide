@@ -116,7 +116,7 @@ public class Home extends AppCompatActivity/* implements Mainhome.Mainhome_liste
                         withSliderBackgroundColor(getResources().getColor(R.color.sliderbg))
                         .withActivity(Home.this)
                         .withToolbar(toolbar)/*.withSliderBackgroundColor(getResources().getColor(R.color.abc)).addStickyDrawerItems(item1,item2)*/
-                        .addDrawerItems(item1, item2,new DividerDrawerItem(),item3, item4, item5,
+                        .addDrawerItems(item2,new DividerDrawerItem(),item3, item4, item5,
                                 new DividerDrawerItem(), item7, item8)
                         .withOnDrawerItemClickListener(new Drawer.OnDrawerItemClickListener() {
                             @Override
@@ -129,7 +129,7 @@ public class Home extends AppCompatActivity/* implements Mainhome.Mainhome_liste
                                             fragmentClass = Mainhome.class;
                                             result.closeDrawer();
                                             break;*/
-                                        case 2:
+                                        case 1:
                                             fragmentClass = Details_fragment.class;
                                             result.closeDrawer();
                                             try {
@@ -145,7 +145,7 @@ public class Home extends AppCompatActivity/* implements Mainhome.Mainhome_liste
                                             fragmentClass = Myuploads.class;
                                             result.closeDrawer();
                                             break;*/
-                                        case 4:
+                                        case 3:
                                             result.closeDrawer();
                                             AlertDialog.Builder apd = new AlertDialog.Builder(Home.this);
                                             apd.setTitle("Psychometric Quiz Confirmation");
@@ -167,7 +167,7 @@ public class Home extends AppCompatActivity/* implements Mainhome.Mainhome_liste
                                             });
                                             apd.show();
                                             break;
-                                        case 5:
+                                        case 4:
                                             result.closeDrawer();
                                             AlertDialog.Builder ald = new AlertDialog.Builder(Home.this);
                                             ald.setTitle("Academic Quiz Confirmation");
@@ -189,20 +189,20 @@ public class Home extends AppCompatActivity/* implements Mainhome.Mainhome_liste
                                             });
                                             ald.show();
                                             break;
-                                        case 6:
+                                        case 5:
                                             Intent in1 = new Intent(Home.this, marks.class);
                                             in1.putExtra("where2",4);
                                             startActivity(in1);
                                             result.setSelection(1);
                                             result.closeDrawer();
                                             break;
-                                        case 8:
+                                        case 7:
                                             result.setSelection(1);
                                             result.closeDrawer();
                                             Intent newweb=new Intent(Home.this,Career_web.class);
                                             startActivity(newweb);
                                             break;
-                                        case 9:
+                                        case 8:
                                             result.setSelection(1);
                                             result.closeDrawer();
                                             AlertDialog.Builder logout_alert = new AlertDialog.Builder(Home.this);
@@ -340,7 +340,7 @@ public class Home extends AppCompatActivity/* implements Mainhome.Mainhome_liste
                 ald.setNegativeButton("No", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
-                        result.setSelection(1);
+                        result.setSelection(2);
                     }
                 });
                 ald.show();

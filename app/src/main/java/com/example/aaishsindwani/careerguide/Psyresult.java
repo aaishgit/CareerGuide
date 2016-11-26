@@ -1,22 +1,28 @@
 package com.example.aaishsindwani.careerguide;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.hanks.htextview.HTextView;
 import com.hanks.htextview.HTextViewType;
 
-public class Psyresult extends AppCompatActivity {
+public class Psyresult extends AppCompatActivity implements View.OnClickListener {
     int score;
     TextView stdata;
     HTextView head;
+    Button go;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_psyresult);
         Bundle b = getIntent().getExtras();
         score=b.getInt("score",0);
+        go=(Button)findViewById(R.id.button6_psy);
+        go.setOnClickListener(this);
         head=(HTextView) findViewById(R.id.text_animate_psy);
         head.setAnimateType(HTextViewType.LINE);
         stdata=(TextView)findViewById(R.id.data);
@@ -50,5 +56,21 @@ public class Psyresult extends AppCompatActivity {
             stdata.setText("These include Doctor, Lecturer, Engineer, Scientist, Armed Forces, and IAS/IES/IPS, " +
                     "Charted Accountant, Company Secretary, Lawyers etc.");
         }
+    }
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()){
+            case R.id.button6_psy:
+                Intent goback=new Intent(Psyresult.this,Home.class);
+                startActivity(goback);
+                finish();
+
+        }
+    }
+
+    @Override
+    public void onBackPressed() {
+
     }
 }

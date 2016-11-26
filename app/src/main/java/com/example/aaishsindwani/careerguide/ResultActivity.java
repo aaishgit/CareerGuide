@@ -22,6 +22,7 @@ import com.github.mikephil.charting.highlight.Highlight;
 import com.github.mikephil.charting.listener.OnChartValueSelectedListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.hanks.htextview.HTextView;
 import com.hanks.htextview.HTextViewType;
@@ -155,8 +156,12 @@ public class ResultActivity extends Activity implements View.OnClickListener {
 	public void onClick(View v) {
 		switch (v.getId()){
 			case R.id.button6_r:
+				Intent goback=new Intent(ResultActivity.this,Home.class);
+				startActivity(goback);
+				finish();
 
 		}
+
 	}
 
 	/*@Override
@@ -165,4 +170,9 @@ public class ResultActivity extends Activity implements View.OnClickListener {
 		getMenuInflater().inflate(R.menu.activity_result, menu);
 		return true;
 	}*/
+
+	@Override
+	public void onBackPressed() {
+
+	}
 }

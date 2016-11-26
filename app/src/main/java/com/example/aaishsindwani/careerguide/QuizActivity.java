@@ -280,7 +280,7 @@ public class QuizActivity extends Activity {
 		rdc.setText(currentQ.getOPTC());
 		rdd.setText(currentQ.getOPTD());
 		qid++;
-		mCountDownView.setTimer(30000);
+		mCountDownView.setTimer(60000);
 		mCountDownView.start();
 	}
 

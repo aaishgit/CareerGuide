@@ -71,7 +71,7 @@ public class psychometric extends Activity {
         rda=(Button)findViewById(R.id.radio0_p);
         rdb=(Button)findViewById(R.id.radio1_p);
         rdc=(Button)findViewById(R.id.radio2_p);
-        mCountDownView.setTimer(60000);
+        mCountDownView.setTimer(30000);
         mCountDownView.start();
         mCountDownView.setListener(new ContinuableCircleCountDownView.OnCountDownCompletedListener() {
             @Override

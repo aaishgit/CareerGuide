@@ -41,7 +41,7 @@
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Upload Result"
+        android:text="Back"
         android:id="@+id/button6_psy"
         android:background="@drawable/button"
         android:layout_alignParentBottom="true"
